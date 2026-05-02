@@ -14,10 +14,9 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/overlay/index.js"],
+      "js": ["content.js"],
       "css": ["src/overlay/overlay.css"],
-      "run_at": "document_idle",
-      "type": "module"
+      "run_at": "document_idle"
     }
   ],
   "commands": {
