@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "RouteTracker",
+  "version": "0.1.0",
+  "description": "RouteTracker popup with a hideable right-side transparent panel.",
+  "action": {
+    "default_title": "RouteTracker",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-panel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+H",
+        "mac": "Command+Shift+H"
+      },
+      "description": "Toggle right-side panel"
+    }
+  }
+}
