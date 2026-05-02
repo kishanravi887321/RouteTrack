@@ -5,7 +5,7 @@
   "description": "RouteTracker right-side transparent overlay for every page.",
   "action": {
     "default_title": "RouteTracker",
-    "default_popup": "popup.html"
+    "default_popup": "src/popup/popup.html"
   },
   "permissions": ["storage"],
   "background": {
@@ -15,7 +15,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "css": ["content.css"],
+      "css": ["src/overlay/overlay.css"],
       "run_at": "document_idle"
     }
   ],
