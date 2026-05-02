@@ -1,0 +1,18 @@
+:root {
+  --rt-panel-width: 360px;
+}
+
+#rt-right-panel.rt-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--rt-panel-width);
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2147483647;
+}
+
+#rt-right-panel.rt-panel.rt-hidden {
+  display: none;
+}

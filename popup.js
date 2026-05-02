@@ -3,7 +3,6 @@ const storageKey = "panelHidden";
 const ui = {
   toggleButton: null,
   statusText: null,
-  rightPanel: null,
 };
 
 const state = {
@@ -11,15 +10,13 @@ const state = {
 };
 
 function applyState() {
-  if (!ui.toggleButton || !ui.statusText || !ui.rightPanel) {
+  if (!ui.toggleButton || !ui.statusText) {
     return;
   }
 
-  document.body.classList.toggle("panel-hidden", state.hidden);
   ui.toggleButton.textContent = state.hidden ? "Show panel" : "Hide panel";
   ui.toggleButton.setAttribute("aria-pressed", String(!state.hidden));
   ui.statusText.textContent = state.hidden ? "Panel hidden" : "Panel visible";
-  ui.rightPanel.setAttribute("aria-hidden", String(state.hidden));
 }
 
 function setHidden(hidden, source) {
@@ -31,9 +28,8 @@ function setHidden(hidden, source) {
 document.addEventListener("DOMContentLoaded", () => {
   ui.toggleButton = document.getElementById("toggleButton");
   ui.statusText = document.getElementById("statusText");
-  ui.rightPanel = document.getElementById("rightPanel");
 
-  if (!ui.toggleButton || !ui.statusText || !ui.rightPanel) {
+  if (!ui.toggleButton || !ui.statusText) {
     return;
   }
 

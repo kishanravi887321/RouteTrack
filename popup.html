@@ -8,26 +8,12 @@
   </head>
   <body>
     <div class="app">
-      <section class="controls">
-        <div class="brand">RouteTracker</div>
-        <div class="subtitle">Right-side transparent panel</div>
-        <button id="toggleButton" class="primary" type="button">Hide panel</button>
-        <div id="statusText" class="status">Panel visible</div>
-        <div class="shortcut">Shortcut: Ctrl+Shift+H</div>
-      </section>
-      <section class="panel" id="rightPanel" aria-live="polite">
-        <div class="panel-inner">
-          <div class="panel-title">Transparent Panel</div>
-          <div class="panel-body">
-            <div class="chip">Tracking</div>
-            <div class="chip">Routes</div>
-            <div class="chip">Notes</div>
-            <p class="panel-note">
-              This area stays on the right and is semi-transparent.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div class="brand">RouteTracker</div>
+      <div class="subtitle">Right-side transparent overlay</div>
+      <button id="toggleButton" class="primary" type="button">Hide panel</button>
+      <div id="statusText" class="status">Panel visible</div>
+      <div class="shortcut">Shortcut: Ctrl+Shift+H</div>
+      <div class="hint">Appears on every page at the right edge.</div>
     </div>
     <script src="popup.js"></script>
   </body>
