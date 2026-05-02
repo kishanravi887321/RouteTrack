@@ -102,22 +102,22 @@ body.panel-hidden {
 .panel {
   position: relative;
   height: 100%;
-  padding: 16px;
-  background: var(--panel-bg);
-  border-left: 1px solid var(--panel-border);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
+  padding: 0;
+  background: transparent;
+  border-left: none;
+  box-shadow: none;
+  backdrop-filter: none;
   animation: panelRise 520ms ease-out;
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
 .panel-inner {
   height: 100%;
-  padding: 14px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  box-shadow: 0 12px 30px var(--shadow);
+  padding: 16px;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .panel-title {
