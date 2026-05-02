@@ -11,16 +11,19 @@
 }
 
 #rt-right-panel.rt-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: var(--rt-panel-width);
-  height: 100vh;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: clamp(320px, 28vw, 520px) !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
   background: linear-gradient(180deg, var(--rt-panel-bg), var(--rt-panel-bg-2));
   color: var(--rt-text);
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
   pointer-events: auto;
-  z-index: 2147483647;
+  z-index: 2147483647 !important;
   box-shadow: -12px 0 28px var(--rt-shadow);
   border-left: 1px solid var(--rt-panel-border);
   transition: transform 160ms ease, opacity 160ms ease;
