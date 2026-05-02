@@ -1,13 +1,13 @@
 :root {
   --rt-panel-width: 360px;
-  --rt-panel-bg: rgba(10, 17, 24, 0.82);
-  --rt-panel-bg-2: rgba(12, 20, 30, 0.92);
-  --rt-panel-border: rgba(255, 255, 255, 0.08);
-  --rt-text: #e6edf5;
-  --rt-muted: #9fb2c6;
-  --rt-accent: #5bd3ff;
-  --rt-accent-strong: #32a7ff;
-  --rt-shadow: rgba(0, 0, 0, 0.45);
+  --rt-panel-bg: rgba(7, 6, 12, 0.94);
+  --rt-panel-bg-2: rgba(16, 8, 26, 0.97);
+  --rt-panel-border: rgba(153, 102, 255, 0.25);
+  --rt-text: #f2e9ff;
+  --rt-muted: #c2b2e6;
+  --rt-accent: #b26bff;
+  --rt-accent-strong: #7b2cff;
+  --rt-shadow: rgba(8, 0, 24, 0.6);
 }
 
 #rt-right-panel.rt-panel {
@@ -48,7 +48,7 @@
   margin: 0;
   border-radius: 12px 0 0 12px;
   border: 1px solid var(--rt-panel-border);
-  background: rgba(10, 17, 24, 0.9);
+  background: rgba(10, 6, 18, 0.94);
   color: var(--rt-text);
   cursor: pointer;
   display: flex;
