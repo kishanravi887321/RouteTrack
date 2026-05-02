@@ -11,6 +11,7 @@ import {
 
 const state = {
   hidden: false,
+  resolved: false,
 };
 
 let ui = {
@@ -22,6 +23,18 @@ let ui = {
 
 function applyState() {
   if (!ui.panel) {
+    return;
+  }
+
+  if (!state.resolved) {
+    ui.panel.classList.add(HIDDEN_CLASS);
+    ui.panel.setAttribute("aria-hidden", "true");
+
+    if (ui.tabButton) {
+      ui.tabButton.classList.add(TAB_HIDDEN_CLASS);
+      ui.tabButton.setAttribute("aria-hidden", "true");
+    }
+
     return;
   }
 
@@ -56,13 +69,17 @@ function init() {
     onTab: () => setHidden(false, "tab"),
   });
 
+  applyState();
+
   getPanelHidden().then((hidden) => {
     state.hidden = hidden;
+    state.resolved = true;
     applyState();
   });
 
   onPanelHiddenChange((hidden) => {
     state.hidden = hidden;
+    state.resolved = true;
     applyState();
   });
 }
