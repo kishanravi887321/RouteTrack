@@ -39,6 +39,41 @@
   pointer-events: none;
 }
 
+#rt-right-tab.rt-tab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  width: 44px;
+  height: 54px;
+  margin: 0;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid var(--rt-panel-border);
+  background: rgba(10, 17, 24, 0.9);
+  color: var(--rt-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  box-shadow: -6px 0 16px var(--rt-shadow);
+  transform: translateY(-50%);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+#rt-right-tab .rt-tab-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--rt-text);
+  stroke-width: 1.6;
+}
+
+#rt-right-tab.rt-tab.rt-tab-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(100%, -50%);
+}
+
 #rt-right-panel .rt-panel-inner {
   height: 100%;
   padding: 20px 18px;

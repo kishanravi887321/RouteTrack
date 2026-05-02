@@ -1,6 +1,8 @@
 const storageKey = "panelHidden";
 const panelId = "rt-right-panel";
+const tabId = "rt-right-tab";
 const hiddenClass = "rt-hidden";
+const tabHiddenClass = "rt-tab-hidden";
 
 const state = {
   hidden: false,
@@ -10,6 +12,7 @@ const ui = {
   panel: null,
   toggleButton: null,
   statusText: null,
+  tabButton: null,
 };
 
 function applyState() {
@@ -26,6 +29,11 @@ function applyState() {
 
   if (ui.statusText) {
     ui.statusText.textContent = state.hidden ? "Panel hidden" : "Panel visible";
+  }
+
+  if (ui.tabButton) {
+    ui.tabButton.classList.toggle(tabHiddenClass, !state.hidden);
+    ui.tabButton.setAttribute("aria-hidden", String(!state.hidden));
   }
 }
 
@@ -79,6 +87,28 @@ function ensurePanel() {
       setHidden(true, "overlay");
     });
   }
+
+  let tabButton = document.getElementById(tabId);
+  if (!tabButton) {
+    tabButton = document.createElement("button");
+    tabButton.id = tabId;
+    tabButton.className = "rt-tab rt-tab-hidden";
+    tabButton.type = "button";
+    tabButton.setAttribute("aria-label", "Show panel");
+    tabButton.innerHTML = `
+      <svg class="rt-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M1 12c2.5-4 6.5-6 11-6s8.5 2 11 6c-2.5 4-6.5 6-11 6S3.5 16 1 12z" />
+        <circle cx="12" cy="12" r="3.5" />
+      </svg>
+    `;
+    const parent = document.body || document.documentElement;
+    parent.appendChild(tabButton);
+  }
+
+  ui.tabButton = tabButton;
+  ui.tabButton.addEventListener("click", () => {
+    setHidden(false, "tab");
+  });
 }
 
 function init() {
