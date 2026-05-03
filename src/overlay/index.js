@@ -79,11 +79,11 @@ function renderRequests(requests) {
 
   ui.requestsList.innerHTML = requests.map((req) => {
     const urlObj = new URL(req.url, window.location.origin);
-    const pathname = urlObj.pathname + urlObj.search;
+    const fullPath = urlObj.hostname + urlObj.pathname + urlObj.search;
     return `
       <div class="rt-request-item" title="${req.url}">
         <div class="rt-request-method">${req.method}</div>
-        <div class="rt-request-url">${pathname}</div>
+        <div class="rt-request-url">${fullPath}</div>
         <div class="rt-request-time">${req.timestamp}</div>
       </div>
     `;
