@@ -18,6 +18,16 @@ const panelMarkup = `
     <div class="rt-status" data-rt-status>Panel visible</div>
     <div class="rt-shortcut">Shortcut: Ctrl+Shift+H</div>
     <div class="rt-hint">Pinned to the right edge of every page.</div>
+    
+    <div class="rt-requests-section">
+      <div class="rt-requests-header">
+        <h3>Network Requests</h3>
+        <button class="rt-clear-btn" type="button" data-rt-clear title="Clear all requests">Clear</button>
+      </div>
+      <div class="rt-requests-list" data-rt-requests>
+        <div class="rt-no-requests">No requests captured yet</div>
+      </div>
+    </div>
   </div>
 `;
 
@@ -49,6 +59,8 @@ export function ensureOverlay(handlers = {}) {
   const toggleButton = panel.querySelector("[data-rt-toggle]");
   const statusText = panel.querySelector("[data-rt-status]");
   const closeButton = panel.querySelector("[data-rt-close]");
+  const requestsList = panel.querySelector("[data-rt-requests]");
+  const clearButton = panel.querySelector("[data-rt-clear]");
 
   if (toggleButton && !toggleButton.dataset.rtBound) {
     toggleButton.addEventListener("click", () => {
@@ -66,6 +78,15 @@ export function ensureOverlay(handlers = {}) {
       }
     });
     closeButton.dataset.rtBound = "true";
+  }
+
+  if (clearButton && !clearButton.dataset.rtBound) {
+    clearButton.addEventListener("click", () => {
+      if (safeHandlers.onClear) {
+        safeHandlers.onClear();
+      }
+    });
+    clearButton.dataset.rtBound = "true";
   }
 
   let tabButton = document.getElementById(TAB_ID);
