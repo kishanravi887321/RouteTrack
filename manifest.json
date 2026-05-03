@@ -17,6 +17,7 @@
       "resources": [
         "src/overlay/index.js",
         "src/overlay/dom.js",
+        "src/network-interceptor.js",
         "src/shared/storage.js"
       ],
       "matches": ["<all_urls>"]
