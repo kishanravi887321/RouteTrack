@@ -115,5 +115,7 @@ export function ensureOverlay(handlers = {}) {
     toggleButton,
     statusText,
     tabButton,
+    requestsList,
+    clearButton,
   };
 }

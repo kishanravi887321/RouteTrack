@@ -7,6 +7,9 @@ import {
   getPanelHidden,
   onPanelHiddenChange,
   setPanelHidden,
+  getCapturedRequests,
+  clearCapturedRequests,
+  onRequestsCaptured,
 } from "../shared/storage.js";
 
 const state = {
