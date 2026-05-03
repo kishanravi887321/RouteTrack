@@ -22,6 +22,8 @@ let ui = {
   toggleButton: null,
   statusText: null,
   tabButton: null,
+  requestsList: null,
+  clearButton: null,
 };
 
 function applyState() {
@@ -65,11 +67,38 @@ function setHidden(hidden, source) {
   setPanelHidden(hidden, source);
 }
 
+function renderRequests(requests) {
+  if (!ui.requestsList) {
+    return;
+  }
+
+  if (!requests || requests.length === 0) {
+    ui.requestsList.innerHTML = '<div class="rt-no-requests">No requests captured yet</div>';
+    return;
+  }
+
+  ui.requestsList.innerHTML = requests.map((req) => {
+    const urlObj = new URL(req.url, window.location.origin);
+    const pathname = urlObj.pathname + urlObj.search;
+    return `
+      <div class="rt-request-item" title="${req.url}">
+        <div class="rt-request-method">${req.method}</div>
+        <div class="rt-request-url">${pathname}</div>
+        <div class="rt-request-time">${req.timestamp}</div>
+      </div>
+    `;
+  }).join("");
+}
+
 function init() {
   ui = ensureOverlay({
     onToggle: () => setHidden(!state.hidden, "overlay"),
     onClose: () => setHidden(true, "overlay"),
     onTab: () => setHidden(false, "tab"),
+    onClear: () => {
+      clearCapturedRequests();
+      renderRequests([]);
+    },
   });
 
   applyState();
@@ -84,6 +113,14 @@ function init() {
     state.hidden = hidden;
     state.resolved = true;
     applyState();
+  });
+
+  getCapturedRequests().then((requests) => {
+    renderRequests(requests);
+  });
+
+  onRequestsCaptured((requests) => {
+    renderRequests(requests);
   });
 }
 
