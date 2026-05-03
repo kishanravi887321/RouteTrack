@@ -43,6 +43,7 @@ export function ensureOverlay(handlers = {}) {
     onToggle: handlers.onToggle || null,
     onClose: handlers.onClose || null,
     onTab: handlers.onTab || null,
+    onClear: handlers.onClear || null,
   };
 
   let panel = document.getElementById(PANEL_ID);
